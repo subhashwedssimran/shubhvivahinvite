@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Subhash & Simran — Wedding Invitation</title>
+  <meta name="description" content="You're cordially invited to the wedding of Subhash & Simran — 20 April 2026">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Great+Vibes&family=Italiana&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <audio id="bgMusic" loop preload="none">
+    <source src="music.mp3" type="audio/mpeg">
+    <source src="https://res.cloudinary.com/depixc8dq/video/upload/v1767377333/aamantran%20tracks%20assets/track_2_jigjv8.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Language toggle -->
+  <div class="lang-toggle" id="langToggle" aria-label="Switch language">
+    <span class="lang-toggle-label lang-active">EN</span>
+    <span class="lang-toggle-switch"><span class="lang-toggle-knob"></span></span>
+    <span class="lang-toggle-label">हिं</span>
+  </div>
+
+  <!-- Aamantran-style: 3D card that opens on tap -->
+  <div class="card-scene" id="cardScene">
+    <div class="card-3d" id="card3d">
+      <div class="card-inner" id="cardInner">
+        <!-- FRONT: Modern card with new effects -->
+        <div class="card-face card-face-front cover-front">
+          <div class="rose-petals" id="rosePetals" aria-hidden="true"></div>
+          <div class="cover-card-border" aria-hidden="true"></div>
+          <div class="cover-bg">
+            <div class="cover-pattern" aria-hidden="true"></div>
+            <div class="cover-shine" aria-hidden="true"></div>
+            <div class="cover-gradient"></div>
+          </div>
+          <div class="cover-frame">
+            <div class="cover-frame-ring" aria-hidden="true"></div>
+            <div class="cover-frame-inner">
+              <span class="cover-ganesh-wrap envelope-anim-text" aria-hidden="true">
+                <img src="assets/ganesh-logo.png" alt="Ganesha" class="cover-ganesh-logo">
+              </span>
+              <p class="cover-label envelope-anim-text">You're Invited</p>
+              <h1 class="cover-names envelope-anim-names">Subhash <span class="cover-amp"><img src="assets/heartlogo.png" alt="and" class="cover-amp-img" loading="eager"></span> Simran</h1>
+              <div class="cover-divider envelope-anim-divider"></div>
+              <p class="cover-tagline envelope-anim-tag">Tap below to open</p>
+              <button type="button" class="cover-cta" id="openInvitation" aria-label="Open invitation"><span class="cover-cta-text">Open Invitation</span><span class="cover-cta-arrow" aria-hidden="true"> →</span></button>
+            </div>
+          </div>
+          <div class="cover-tagline-wrap envelope-anim-site">
+            <div class="cover-tagline-pattern" aria-hidden="true"></div>
+            <p class="cover-site">Subhash Weds Simran</p>
+          </div>
+        </div>
+
+        <!-- BACK: Full invitation (revealed when card flips) -->
+        <div class="card-face card-face-back">
+          <div class="invite-bg" aria-hidden="true">
+            <div class="invite-pattern"></div>
+            <div class="invite-gradient"></div>
+          </div>
+          <div class="invite-content">
+
+          <!-- Header -->
+          <header class="inv-header">
+            <img src="assets/ganesh-logo.png" alt="Ganesha" class="inv-ganesh">
+            <h1 class="inv-mantra">Om Shri Ganeshaya Namah</h1>
+            <p class="inv-label">Auspicious Invitation</p>
+          </header>
+
+          <!-- Couple section (reference: image boxes + couple names below) -->
+          <section class="couple-images-section section">
+            <div class="couple-images-container">
+              <div class="couple-image-box groom-image-box">
+                <img src="assets/groom_logo.png" alt="Subhash Kr Verma" class="couple-image" loading="lazy">
+              </div>
+              <div class="couple-image-box bride-image-box">
+                <img src="assets/bride_logo.png" alt="Simran Verma" class="couple-image" loading="lazy">
+              </div>             
+            </div>
+            <!-- Unique separator line between couple and invitation sections -->
+            <div class="couple-section-separator" aria-hidden="true">
+              <span class="separator-line separator-line-left"></span>
+              <span class="separator-motive">✦</span>
+              <span class="separator-line separator-line-right"></span>
+            </div>
+          </section>
+
+          <!-- Invitation section (reference structure: groom first, then bride, gold theme) -->
+          <section class="invitation-section section section-reveal">
+            <div class="decorative-top"></div>
+            <div class="main-content">
+              <p class="invitation-text">We cordially invite you and your family<br>to the auspicious wedding of</p>
+              <div class="couple-names">
+                <div class="name-groom">
+                  <h2 class="name-large">Subhash Kr <span class="name-last">Verma</span></h2>
+                  <p class="parent-info">Son of</p>
+                  <p class="parent-names">Mr. Mohan & Mrs. Pramila Verma</p>
+                </div>
+                <span class="cover-amp"><img src="assets/heartlogo.png" alt="and" class="cover-amp-img" loading="eager"></span>
+                <div class="name-bride">
+                  <h2 class="name-large">Simran <span class="name-last">Verma</span></h2>
+                  <p class="parent-info">Daughter of</p>
+                  <p class="parent-names">Mr. Sunil & Mrs. Pratima Verma</p>
+                </div>
+              </div>
+              <div class="wedding-details">
+                <div class="detail-item">
+                  <span class="detail-label">Wedding Date</span>
+                  <span class="detail-value">20 April 2026</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-label">Venue</span>
+                  <span class="detail-value detail-value-venue">Village: Bonashinga<br>Post: Khorimahwa<br>PS: Rajdhanwar<br>District: Giridih,<br> Jharkhand – 825412</span>
+                </div>
+              </div>
+              <div class="host-info">
+                <p class="host-text">Invited by</p>
+                <p class="host-names">Mr. Mohan & Mrs. Pramila Verma<br><span class="host-names-sub">Together with their beloved families</span></p>
+              </div>
+            </div>
+            <div class="decorative-bottom"></div>
+          </section>
+
+          <!-- Countdown: Time Until Wedding (reference style) -->
+          <section class="countdown-section section section-reveal" id="countdown">
+            <h2 class="countdown-section-title">Countdown to Our Forever</h2>
+            <div class="countdown-invite">
+              <div class="countdown-invite-item">
+                <span class="countdown-invite-num" id="cdDays">0</span>
+                <span class="countdown-invite-label">Days</span>
+              </div>
+              <span class="countdown-invite-sep">:</span>
+              <div class="countdown-invite-item">
+                <span class="countdown-invite-num" id="cdHours">0</span>
+                <span class="countdown-invite-label">Hours</span>
+              </div>
+              <span class="countdown-invite-sep">:</span>
+              <div class="countdown-invite-item">
+                <span class="countdown-invite-num" id="cdMins">0</span>
+                <span class="countdown-invite-label">Mins</span>
+              </div>
+              <span class="countdown-invite-sep">:</span>
+              <div class="countdown-invite-item">
+                <span class="countdown-invite-num" id="cdSecs">0</span>
+                <span class="countdown-invite-label">Secs</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Calendar: April 2026 -->
+          <section class="calendar-section section section-reveal">
+            <h2 class="calendar-section-title">April 2026</h2>
+            <div class="calendar-wrap">
+              <div class="calendar-head">
+                <span class="cal-day">Sun</span><span class="cal-day">Mon</span><span class="cal-day">Tue</span><span class="cal-day">Wed</span><span class="cal-day">Thu</span><span class="cal-day">Fri</span><span class="cal-day">Sat</span>
+              </div>
+              <div class="calendar-grid" id="calendar-grid"></div>
+            </div>
+          </section>
+
+          <!-- Venue / Map -->
+          <section class="venue-section section section-reveal" id="venue">
+            <div class="section-head">
+              <span class="section-head-ico">📍</span>
+              <span class="section-head-title">Wedding Venue</span>
+              <span class="section-head-line"></span>
+            </div>
+            <div class="venue-invite-card">
+              <a href="https://maps.app.goo.gl/mhJR91sbQw28LqGA6" target="_blank" rel="noopener" class="venue-map-card" aria-label="Open venue in Maps">
+                <img src="assets/map_view.png" alt="Wedding venue map" class="venue-map-card-img" loading="lazy">
+              </a>
+          </div>
+            <div class="venue-map-qr-wrap">             
+              <div class="venue-qr-card">
+                <a href="https://maps.app.goo.gl/mhJR91sbQw28LqGA6" target="_blank" rel="noopener" aria-label="Open venue in Maps">
+                  <img src="assets/Location_qr_code.png" alt="Scan for venue location" class="venue-qr-img" loading="lazy" onerror="this.style.display='none'">
+                </a>
+                <p class="venue-qr-label">Scan for location</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- RSVP -->
+          <section class="rsvp-section section section-reveal" id="rsvp">
+            <div class="section-head">
+              <span class="section-head-ico"><img src="assets/mail_logo.png" alt="" class="section-head-ico-img" aria-hidden="true"></span>
+              <span class="section-head-title">RSVP</span>
+              <span class="section-head-line"></span>
+            </div>
+            <p class="rsvp-invite-text">Kindly confirm your attendance</p>
+            <form class="rsvp-form" action="#" method="post">
+              <div class="form-row">
+                <label class="form-label">Your Name</label>
+                <input type="text" name="name" placeholder="Enter Name" required>
+              </div>
+              <div class="form-row">
+                <label class="form-label">Will you attend?</label>
+                <select name="attendance">
+                  <option value="">Choose</option>
+                  <option value="yes">Joyfully accept</option>
+                  <option value="no">Regretfully decline</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label class="form-label">Your wishes</label>
+                <textarea name="message" placeholder="Blessings and wishes..." rows="3"></textarea>
+              </div>
+              <button type="submit" class="btn-submit">Send RSVP</button>
+              <button type="button" class="btn-rsvp-reset" id="rsvpReset" style="display:none;">+ Add Another RSVP</button>
+            </form>
+          </section>
+
+          <!-- Blessings placeholder -->
+          <section class="blessings-section section section-reveal">
+            <div class="section-head">
+              <span class="section-head-ico"><img src="assets/blessin_logo.png" alt="" class="section-head-ico-img" aria-hidden="true"></span>
+              <span class="section-head-title">Blessings</span>
+              <span class="section-head-line"></span>
+            </div>
+            <div class="blessings-wall" id="blessings-wall">
+              <p class="blessings-placeholder">Your blessings are truly precious to us, and we humbly cherish them.</p>
+            </div>
+          </section>
+
+          <!-- Contribution (gift / blessings) -->
+          <section class="contribution-section section section-reveal">
+            <div class="section-head">
+              <span class="section-head-ico">💝</span>
+              <span class="section-head-title">Your Blessings & Support</span>
+              <span class="section-head-line"></span>
+            </div>
+            <div class="contribution-inner">
+              <div class="contribution-qr-wrap">
+                <img src="assets/qr_code.jpeg" alt="Scan to contribute" class="contribution-qr-img" loading="lazy" onerror="this.parentElement.classList.add('hidden')">
+                <p class="contribution-qr-text">Scan QR Code</p>
+              </div>
+            </div>
+            <p class="contribution-note">Your love and blessings are our greatest gift, and we humbly treasure them with all our hearts.</p>
+          </section>
+
+          <!-- Footer (reference style: Om + names + date) -->
+          <footer class="footer footer-invite footer-reveal">            
+            <div class="footer-couple-card">
+              <span class="footer-om" aria-hidden="true"><img src="assets/om_logo.png" alt="Om" class="footer-om-img"></span>
+              <div class="couple-card">                
+                <div class="couple-card-frame">
+                  <img src="assets/groom_bride_logo.png" alt="Subhash & Simran" class="couple-card-img" loading="lazy">
+                </div>
+                <div class="couple-card-text">
+                  <p class="couple-card-quote">Two souls, one heart — bound together in love forever</p>
+                  <p class="couple-card-names">Subhash & Simran</p>
+                  <p class="couple-card-date">20 April 2026</p>
+                </div>
+              </div>
+            </div>
+            <p class="footer-note">Your presence is a blessing to us, and it means more than words can express.</p>
+          </footer>
+
+          <!-- Digital invitation footer -->
+          <div class="digital-footer section-reveal">
+            <p class="digital-footer-text">Digital Invitation</p>
+            <p class="digital-footer-copy">© 2026 — Subhash & Simran</p>
+            <div class="digital-footer-sign">
+              <img src="assets/sign_pic.png" alt="Signature" class="digital-footer-sign-img" loading="lazy">
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
