@@ -19,6 +19,25 @@
   var frontFace = document.querySelector('.card-face-front');
   var audio = document.getElementById('bgMusic');
 
+  // Music toggle
+  var musicBtn = document.getElementById('musicToggle');
+  var musicIcon = document.getElementById('musicIcon');
+  var musicPlaying = false;
+  function updateMusicIcon() {
+    if (musicIcon) musicIcon.textContent = musicPlaying ? '🔊' : '🔇';
+  }
+  if (audio) {
+    audio.addEventListener('play', function () { musicPlaying = true; updateMusicIcon(); });
+    audio.addEventListener('pause', function () { musicPlaying = false; updateMusicIcon(); });
+  }
+  if (musicBtn && audio) {
+    musicBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (audio.paused) { audio.play().catch(function () {}); }
+      else { audio.pause(); }
+    });
+  }
+
   function openInvitation() {
     if (scene && !scene.classList.contains('opened')) {
       scene.classList.add('opened');
