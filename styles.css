@@ -105,12 +105,54 @@ body { font-family: var(--font-sans); font-weight: 400; color: var(--color-charc
   transform: scale(1);
 }
 
-/* ===== Language toggle ===== */
-.lang-toggle {
+/* ===== Top bar: music + language (single fixed row — avoids overlap / hidden music btn) ===== */
+.top-bar-controls {
   position: fixed;
   top: 0.75rem;
   right: 0.75rem;
-  z-index: 100;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+  pointer-events: none;
+}
+.top-bar-controls > * {
+  pointer-events: auto;
+}
+
+/* ===== Music toggle ===== */
+.music-toggle {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 252, 245, 0.92);
+  border: 1px solid rgba(184, 134, 11, 0.3);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  padding: 0;
+  transition: box-shadow 0.3s ease;
+}
+.music-toggle:hover {
+  box-shadow: 0 3px 16px rgba(184, 134, 11, 0.18);
+}
+.music-toggle-icon {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+/* ===== Language toggle ===== */
+.lang-toggle {
+  flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -124,6 +166,8 @@ body { font-family: var(--font-sans); font-weight: 400; color: var(--color-charc
   cursor: pointer;
   user-select: none;
   transition: box-shadow 0.3s ease;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
 .lang-toggle:hover {
   box-shadow: 0 3px 16px rgba(184, 134, 11, 0.18);
@@ -632,9 +676,10 @@ body { font-family: var(--font-sans); font-weight: 400; color: var(--color-charc
 .cover-site {
   position: relative;
   z-index: 1;
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Playfair Display', var(--font-serif);
   font-size: 1.15rem;
   font-weight: 600;
+  font-style: italic;
   letter-spacing: 0.04em;
   margin: 0;
   white-space: nowrap;
@@ -918,6 +963,28 @@ body { font-family: var(--font-sans); font-weight: 400; color: var(--color-charc
   transform: scale(1.02);
 }
 
+.couple-image-label {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  font-family: 'Playfair Display', var(--font-serif);
+  font-size: 0.65rem;
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  color: var(--color-gold);
+  background: rgba(255, 252, 245, 0.92);
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(184, 134, 11, 0.2);
+  white-space: nowrap;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
 /* Unique separator row between couple and invitation sections */
 .couple-section-separator {
   display: flex;
@@ -1011,9 +1078,10 @@ body { font-family: var(--font-sans); font-weight: 400; color: var(--color-charc
   min-width: 0;
 }
 .name-large {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Playfair Display', var(--font-serif);
   font-size: clamp(1.75rem, 5vw, 2.1rem);
-  font-weight: 400;
+  font-weight: 600;
+  font-style: italic;
   color: var(--color-gold);
   margin: 0 0 0.25rem;
   line-height: 1.2;
@@ -1269,6 +1337,103 @@ body { font-family: var(--font-sans); font-weight: 400; color: var(--color-charc
   line-height: 1.7;
   letter-spacing: 0.02em;
 }
+/* ===== Wedding Schedule ===== */
+.schedule-block {
+  margin: 0.5rem 0 0;
+  text-align: center;
+}
+.schedule-title {
+  font-family: 'Playfair Display', var(--font-serif);
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--color-gold);
+  letter-spacing: 0.06em;
+  margin: 0 0 0.75rem;
+}
+.schedule-day {
+  margin-bottom: 0.6rem;
+  padding: 0.5rem 0.6rem;
+  background: linear-gradient(180deg, rgba(184, 134, 11, 0.04) 0%, rgba(184, 134, 11, 0.08) 100%);
+  border: 1px solid rgba(184, 134, 11, 0.15);
+  border-radius: 10px;
+}
+.schedule-day-head {
+  margin-bottom: 0.35rem;
+}
+.schedule-date-badge {
+  display: inline-block;
+  font-family: 'Cormorant Garamond', var(--font-serif);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-gold);
+  padding: 0.15rem 0.6rem;
+  background: rgba(184, 134, 11, 0.08);
+  border-radius: 999px;
+  border: 1px solid rgba(184, 134, 11, 0.2);
+}
+.schedule-day-name {
+  font-weight: 500;
+  opacity: 0.7;
+  font-style: italic;
+}
+.schedule-events {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.schedule-event {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+.schedule-icon {
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+.schedule-event-text {
+  font-family: 'Cormorant Garamond', var(--font-serif);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  line-height: 1.5;
+}
+.schedule-highlight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  margin: 0.5rem 0;
+  padding: 0.4rem 0.6rem;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.08) 0%, rgba(184, 134, 11, 0.1) 100%);
+  border-radius: 8px;
+  border: 1px dashed rgba(184, 134, 11, 0.3);
+}
+.schedule-highlight-text {
+  font-family: 'Cormorant Garamond', var(--font-serif);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--color-charcoal);
+}
+.schedule-highlight-text strong {
+  font-weight: 700;
+  color: var(--color-gold);
+}
+.schedule-day-reception {
+  border: 1px solid rgba(184, 134, 11, 0.25);
+  background: linear-gradient(180deg, rgba(184, 134, 11, 0.06) 0%, rgba(184, 134, 11, 0.12) 100%);
+}
+.schedule-blessing {
+  font-family: 'Playfair Display', var(--font-serif);
+  font-size: 0.7rem;
+  font-style: italic;
+  color: var(--color-muted);
+  margin: 0.75rem 0 0;
+  line-height: 1.5;
+}
+
 .host-info {
   text-align: center;
   margin-top: 1.75rem;
@@ -1614,6 +1779,8 @@ body { font-family: var(--font-sans); font-weight: 400; color: var(--color-charc
   background: linear-gradient(165deg, #fefcf9 0%, #f9f5f0 100%);
   box-shadow: 0 4px 20px rgba(184, 134, 11, 0.12);
   margin-bottom: 1rem;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
 .venue-map-card .venue-map-card-img {
   display: block;
@@ -1697,6 +1864,8 @@ body { font-family: var(--font-sans); font-weight: 400; color: var(--color-charc
 }
 .venue-qr-card a {
   display: block;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
 .venue-qr-img {
   width: 140px;
@@ -1711,6 +1880,56 @@ body { font-family: var(--font-sans); font-weight: 400; color: var(--color-charc
   letter-spacing: 0.05em;
   color: var(--color-gold);
   text-align: center;
+}
+
+/* Unified venue card (map + QR in one) */
+.venue-unified-card {
+  border-radius: 14px;
+  border: 2px solid rgba(184, 134, 11, 0.25);
+  background: linear-gradient(180deg, #fefdfb 0%, #faf7f0 50%, #f6f2ea 100%);
+  box-shadow: 0 4px 20px rgba(184, 134, 11, 0.12);
+  overflow: hidden;
+  max-width: 340px;
+  margin: 0 auto;
+}
+.venue-unified-card .venue-map-card {
+  display: block;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+}
+.venue-unified-card .venue-map-card-img {
+  border-radius: 0;
+}
+.venue-unified-bottom {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid rgba(184, 134, 11, 0.15);
+}
+.venue-qr-mini {
+  flex-shrink: 0;
+}
+.venue-qr-mini-img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: 6px;
+  border: 1px solid rgba(184, 134, 11, 0.2);
+}
+.venue-unified-text {
+  text-align: left;
+}
+.venue-unified-text .venue-qr-label {
+  margin: 0;
+  text-align: left;
+}
+.venue-tap-label {
+  margin: 0.15rem 0 0;
+  font-size: 0.65rem;
+  color: var(--color-muted);
+  letter-spacing: 0.03em;
 }
 
 /* RSVP */
@@ -1777,6 +1996,27 @@ body { font-family: var(--font-sans); font-weight: 400; color: var(--color-charc
   padding: 1.5rem;
   border: 1px dashed rgba(184, 134, 11, 0.25);
   text-align: center;
+}
+.blessings-quote {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(184, 134, 11, 0.15);
+}
+.blessings-quote-text {
+  font-family: 'Playfair Display', var(--font-serif);
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--color-gold);
+  line-height: 1.6;
+  margin: 0;
+}
+.blessings-quote-attr {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--color-muted);
+  margin: 0.35rem 0 0;
 }
 .blessings-placeholder {
   font-size: 0.9rem;
@@ -2075,7 +2315,7 @@ body { font-family: var(--font-sans); font-weight: 400; color: var(--color-charc
 
 .hero-names .name-groom, .hero-names .name-bride { display: block; color: var(--color-gold);}
 .hero-names .ampersand { font-style: italic; color: #000000; font-size: 0.78em; }
-.hero-names-playfair { font-family: 'Great Vibes', cursive; }
+.hero-names-playfair { font-family: 'Playfair Display', var(--font-serif); font-style: italic; }
 
 .hero-invite {
   font-size: 0.9rem;
@@ -2423,6 +2663,12 @@ body { font-family: var(--font-sans); font-weight: 400; color: var(--color-charc
   border-color: var(--color-gold);
 }
 .rsvp-form textarea { resize: vertical; min-height: 76px; }
+.rsvp-form button,
+.rsvp-form input,
+.rsvp-form select,
+.rsvp-form textarea {
+  -webkit-tap-highlight-color: transparent;
+}
 .btn-submit {
   width: 100%;
   padding: 0.95rem 1.5rem;
@@ -2532,9 +2778,10 @@ body { font-family: var(--font-sans); font-weight: 400; color: var(--color-charc
 }
 
 .footer-tagline {
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Playfair Display', var(--font-serif);
   font-size: clamp(1.75rem, 5vw, 2.35rem);
-  font-weight: 400;
+  font-weight: 600;
+  font-style: italic;
   margin: 0;
   color: rgba(255, 255, 255, 0.95);
   letter-spacing: 0.02em;
