@@ -5,9 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>सुभाष & सिमरन — शादी का निमंत्रण</title>
   <meta name="description" content="आप सादर आमंत्रित हैं सुभाष और सिमरन की शादी में — 20 अप्रैल 2026">
+  <link rel="icon" href="assets/heartlogo.png" type="image/png">
+  <meta property="og:title" content="सुभाष & सिमरन — शादी का निमंत्रण">
+  <meta property="og:description" content="आप सादर आमंत्रित हैं सुभाष और सिमरन की शादी में — 20 अप्रैल 2026">
+  <meta property="og:image" content="assets/groom_bride_logo.png">
+  <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Great+Vibes&family=Italiana&family=Montserrat:wght@300;400;500;600&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
     .hindi-text { font-family: 'Noto Sans Devanagari', var(--font-sans); }
@@ -22,11 +27,15 @@
     <source src="https://res.cloudinary.com/depixc8dq/video/upload/v1767377333/aamantran%20tracks%20assets/track_2_jigjv8.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- Language toggle -->
-  <div class="lang-toggle hindi" id="langToggle" aria-label="Switch language">
-    <span class="lang-toggle-label">EN</span>
-    <span class="lang-toggle-switch"><span class="lang-toggle-knob"></span></span>
-    <span class="lang-toggle-label lang-active">हिं</span>
+  <div class="top-bar-controls" role="toolbar" aria-label="पृष्ठ नियंत्रण">
+    <button type="button" class="music-toggle" id="musicToggle" aria-label="संगीत चालू/बंद">
+      <span class="music-toggle-icon" id="musicIcon">🔇</span>
+    </button>
+    <div class="lang-toggle hindi" id="langToggle" aria-label="Switch language">
+      <span class="lang-toggle-label">EN</span>
+      <span class="lang-toggle-switch"><span class="lang-toggle-knob"></span></span>
+      <span class="lang-toggle-label lang-active">हिं</span>
+    </div>
   </div>
 
   <!-- Aamantran-style: 3D card that opens on tap -->
@@ -81,9 +90,11 @@
             <div class="couple-images-container">
               <div class="couple-image-box groom-image-box">
                 <img src="assets/groom_logo.png" alt="सुभाष कुमार वर्मा" class="couple-image" loading="lazy">
+                <span class="couple-image-label hindi-text">सुभाष</span>
               </div>
               <div class="couple-image-box bride-image-box">
                 <img src="assets/bride_logo.png" alt="सिमरन वर्मा" class="couple-image" loading="lazy">
+                <span class="couple-image-label hindi-text">सिमरन</span>
               </div>             
             </div>
             <div class="couple-section-separator" aria-hidden="true">
@@ -112,13 +123,52 @@
                 </div>
               </div>
               <div class="wedding-details">
-                <div class="detail-item">
-                  <span class="detail-label hindi-text">विवाह तिथि</span>
-                  <span class="detail-value hindi-text">20 अप्रैल 2026</span>
-                </div>
-                <div class="detail-item">
-                  <span class="detail-label hindi-text">स्थान</span>
-                  <span class="detail-value detail-value-venue hindi-text">गाँव: बोनासिंगा<br>पोस्ट: खोरीमहुआ<br>थाना: राजधनवार<br>जिला: गिरिडीह,<br> झारखंड – 825412</span>
+                <div class="schedule-block">
+                  <h3 class="schedule-title hindi-text">मांगलिक कार्यक्रम</h3>
+
+                  <div class="schedule-day">
+                    <div class="schedule-day-head">
+                      <span class="schedule-date-badge hindi-text">📅 दिनांक: 18 अप्रैल 2026 <span class="schedule-day-name">(शनिवार)</span></span>
+                    </div>
+                    <div class="schedule-events">
+                      <div class="schedule-event"><span class="schedule-icon">🌼</span><span class="schedule-event-text hindi-text">शुभ हल्दी लेपन</span></div>
+                    </div>
+                  </div>
+
+                  <div class="schedule-day">
+                    <div class="schedule-day-head">
+                      <span class="schedule-date-badge hindi-text">📅 दिनांक: 19 अप्रैल 2026 <span class="schedule-day-name">(रविवार)</span></span>
+                    </div>
+                    <div class="schedule-events">
+                      <div class="schedule-event"><span class="schedule-icon">🌿</span><span class="schedule-event-text hindi-text">मेहंदी समारोह</span></div>
+                    </div>
+                  </div>
+
+                  <div class="schedule-day">
+                    <div class="schedule-day-head">
+                      <span class="schedule-date-badge hindi-text">📅 दिनांक: 20 अप्रैल 2026 <span class="schedule-day-name">(सोमवार)</span></span>
+                    </div>
+                    <div class="schedule-events">
+                      <div class="schedule-event"><span class="schedule-icon">🪔</span><span class="schedule-event-text hindi-text">मण्डपाच्छादन एवं देवपूजन</span></div>
+                      <div class="schedule-event"><span class="schedule-icon">🎺</span><span class="schedule-event-text hindi-text">धृतढ़ारी बारात आगमन</span></div>
+                      <div class="schedule-event"><span class="schedule-icon">💍</span><span class="schedule-event-text hindi-text">रात्रि में शुभ विवाह</span></div>
+                    </div>
+                  </div>
+
+                  <div class="schedule-highlight">
+                    <span class="schedule-icon">👧</span><span class="schedule-highlight-text hindi-text">बाल हठ: <strong>सान्वी वर्मा</strong></span>
+                  </div>
+
+                  <div class="schedule-day schedule-day-reception">
+                    <div class="schedule-day-head">
+                      <span class="schedule-date-badge hindi-text">🍽 प्रीतिभोज</span>
+                    </div>
+                    <div class="schedule-events">
+                      <div class="schedule-event"><span class="schedule-icon">📅</span><span class="schedule-event-text hindi-text">दिनांक: 20 अप्रैल 2026 (सोमवार)</span></div>
+                      <div class="schedule-event"><span class="schedule-icon">⏰</span><span class="schedule-event-text hindi-text">समय: दोपहर 12 बजे से आपके आगमन तक</span></div>
+                    </div>
+                  </div>
+                  <p class="schedule-blessing hindi-text">💐 आपकी शुभ उपस्थिति हमारे लिए परम सौभाग्य होगी।</p>
                 </div>
               </div>
               <div class="host-info">
@@ -173,17 +223,18 @@
               <span class="section-head-title hindi-text">विवाह स्थल</span>
               <span class="section-head-line"></span>
             </div>
-            <div class="venue-invite-card">
+            <div class="venue-unified-card">
               <a href="https://maps.app.goo.gl/mhJR91sbQw28LqGA6" target="_blank" rel="noopener" class="venue-map-card" aria-label="मैप में खोलें">
                 <img src="assets/map_view.png" alt="विवाह स्थल का नक्शा" class="venue-map-card-img" loading="lazy">
               </a>
-          </div>
-            <div class="venue-map-qr-wrap">             
-              <div class="venue-qr-card">
-                <a href="https://maps.app.goo.gl/mhJR91sbQw28LqGA6" target="_blank" rel="noopener" aria-label="मैप में खोलें">
-                  <img src="assets/Location_qr_code.png" alt="स्थान के लिए स्कैन करें" class="venue-qr-img" loading="lazy" onerror="this.style.display='none'">
-                </a>
-                <p class="venue-qr-label hindi-text">स्थान के लिए स्कैन करें</p>
+              <div class="venue-unified-bottom">
+                <div class="venue-qr-mini">
+                  <img src="assets/Location_qr_code.png" alt="स्थान के लिए स्कैन करें" class="venue-qr-mini-img" loading="lazy">
+                </div>
+                <div class="venue-unified-text">
+                  <p class="venue-qr-label hindi-text">स्थान के लिए स्कैन करें</p>
+                  <p class="venue-tap-label hindi-text">या मानचित्र पर टैप करें</p>
+                </div>
               </div>
             </div>
           </section>
@@ -226,6 +277,9 @@
               <span class="section-head-line"></span>
             </div>
             <div class="blessings-wall" id="blessings-wall">
+              <div class="blessings-quote">
+                <p class="blessings-quote-text hindi-text">"प्रेम वह शक्ति है जो दो हृदयों को एक सूत्र में बांधती है।"</p>
+              </div>
               <p class="blessings-placeholder hindi-text">आपका आशीर्वाद हमारे लिए अत्यंत अनमोल है, जिसे हम विनम्रतापूर्वक हृदय से सहेजते हैं</p>
             </div>
           </section>
@@ -249,8 +303,8 @@
           <!-- Footer -->
           <footer class="footer footer-invite footer-reveal">           
             <div class="footer-couple-card">
+              <span class="footer-om" aria-hidden="true"><img src="assets/om_logo.png" alt="ॐ" class="footer-om-img"></span>
               <div class="couple-card">
-                <span class="footer-om" aria-hidden="true"><img src="assets/om_logo.png" alt="ॐ" class="footer-om-img"></span>
                 <div class="couple-card-frame">
                   <img src="assets/groom_bride_logo.png" alt="सुभाष और सिमरन" class="couple-card-img" loading="lazy">
                 </div>
