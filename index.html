@@ -5,10 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Subhash & Simran — Wedding Invitation</title>
   <meta name="description" content="You're cordially invited to the wedding of Subhash & Simran — 20 April 2026">
+  <link rel="icon" href="assets/heartlogo.png" type="image/png">
+  <meta property="og:title" content="Subhash & Simran — Wedding Invitation">
+  <meta property="og:description" content="You're cordially invited to the wedding of Subhash & Simran — 20 April 2026">
+  <meta property="og:image" content="assets/groom_bride_logo.png">
+  <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Great+Vibes&family=Italiana&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* English index only: slightly bolder schedule for clarity & polish */
+    .schedule-block-index .schedule-title {
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      -webkit-font-smoothing: antialiased;
+    }
+    .schedule-block-index .schedule-date-badge {
+      font-weight: 700;
+      -webkit-font-smoothing: antialiased;
+    }
+    .schedule-block-index .schedule-day-name {
+      font-weight: 600;
+    }
+    .schedule-block-index .schedule-event-text {
+      font-weight: 700;
+      -webkit-font-smoothing: antialiased;
+    }
+    .schedule-block-index .schedule-highlight-text {
+      font-weight: 600;
+    }
+    .schedule-block-index .schedule-highlight-text strong {
+      font-weight: 700;
+    }
+    .schedule-block-index .schedule-blessing {
+      font-weight: 500;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* English only: subtle shine on first schedule date */
+    .schedule-date-badge-shine {
+      text-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.45),
+        0 0 10px rgba(212, 168, 75, 0.28);
+    }
+  </style>
 </head>
 <body>
   <audio id="bgMusic" loop preload="none">
@@ -16,11 +56,17 @@
     <source src="https://res.cloudinary.com/depixc8dq/video/upload/v1767377333/aamantran%20tracks%20assets/track_2_jigjv8.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- Language toggle -->
-  <div class="lang-toggle" id="langToggle" aria-label="Switch language">
-    <span class="lang-toggle-label lang-active">EN</span>
-    <span class="lang-toggle-switch"><span class="lang-toggle-knob"></span></span>
-    <span class="lang-toggle-label">हिं</span>
+  <div class="top-bar-controls" role="toolbar" aria-label="Page controls">
+    <!-- Music toggle (must sit beside lang toggle — same z-index was hiding it under the pill) -->
+    <button type="button" class="music-toggle" id="musicToggle" aria-label="Toggle music">
+      <span class="music-toggle-icon" id="musicIcon">🔇</span>
+    </button>
+    <!-- Language toggle -->
+    <div class="lang-toggle" id="langToggle" aria-label="Switch language">
+      <span class="lang-toggle-label lang-active">EN</span>
+      <span class="lang-toggle-switch"><span class="lang-toggle-knob"></span></span>
+      <span class="lang-toggle-label">हिं</span>
+    </div>
   </div>
 
   <!-- Aamantran-style: 3D card that opens on tap -->
@@ -75,9 +121,11 @@
             <div class="couple-images-container">
               <div class="couple-image-box groom-image-box">
                 <img src="assets/groom_logo.png" alt="Subhash Kr Verma" class="couple-image" loading="lazy">
+                <span class="couple-image-label">Subhash</span>
               </div>
               <div class="couple-image-box bride-image-box">
                 <img src="assets/bride_logo.png" alt="Simran Verma" class="couple-image" loading="lazy">
+                <span class="couple-image-label">Simran</span>
               </div>             
             </div>
             <!-- Unique separator line between couple and invitation sections -->
@@ -107,13 +155,53 @@
                 </div>
               </div>
               <div class="wedding-details">
-                <div class="detail-item">
-                  <span class="detail-label">Wedding Date</span>
-                  <span class="detail-value">20 April 2026</span>
-                </div>
-                <div class="detail-item">
-                  <span class="detail-label">Venue</span>
-                  <span class="detail-value detail-value-venue">Village: Bonashinga<br>Post: Khorimahwa<br>PS: Rajdhanwar<br>District: Giridih,<br> Jharkhand – 825412</span>
+                <div class="schedule-block schedule-block-index">
+                  <h3 class="schedule-title">Auspicious Wedding Schedule</h3>
+
+                  <div class="schedule-day">
+                    <div class="schedule-day-head">
+                      <span class="schedule-date-badge schedule-date-badge-shine">18 April 2026 <span class="schedule-day-name">Saturday</span></span>
+                    </div>
+                    <div class="schedule-events">
+                      <div class="schedule-event"><span class="schedule-icon">🌼</span><span class="schedule-event-text">Haldi Ceremony</span></div>
+                    </div>
+                  </div>
+
+                  <div class="schedule-day">
+                    <div class="schedule-day-head">
+                      <span class="schedule-date-badge">19 April 2026 <span class="schedule-day-name">Sunday</span></span>
+                    </div>
+                    <div class="schedule-events">
+                      <div class="schedule-event"><span class="schedule-icon">🌿</span><span class="schedule-event-text">Mehendi Ceremony</span></div>
+                    </div>
+                  </div>
+
+                  <div class="schedule-day">
+                    <div class="schedule-day-head">
+                      <span class="schedule-date-badge">20 April 2026 <span class="schedule-day-name">Monday</span></span>
+                    </div>
+                    <div class="schedule-events">
+                      <div class="schedule-event"><span class="schedule-icon">🪔</span><span class="schedule-event-text">Mandap Ceremony & Dev Poojan</span></div>
+                      <div class="schedule-event"><span class="schedule-icon">🎺</span><span class="schedule-event-text">Arrival of the Baraat</span></div>
+                      <div class="schedule-event"><span class="schedule-icon">💍</span><span class="schedule-event-text">Wedding Ceremony in the Evening</span></div>
+                    </div>
+                  </div>
+
+                  <div class="schedule-highlight">
+                    <span class="schedule-icon">👧</span><span class="schedule-highlight-text">Little Wish: <strong>Saanvi Verma</strong></span>
+                  </div>
+
+                  <div class="schedule-day schedule-day-reception">
+                    <div class="schedule-day-head">
+                      <span class="schedule-date-badge">🍽 Wedding Feast</span>
+                    </div>
+                    <div class="schedule-events">
+                      <div class="schedule-event"><span class="schedule-icon">📅</span><span class="schedule-event-text">20 April 2026 (Monday)</span></div>
+                      <div class="schedule-event"><span class="schedule-icon">⏰</span><span class="schedule-event-text">From 12:00 Noon onwards</span></div>
+                    </div>
+                  </div>
+
+                  <p class="schedule-blessing">💐 Your gracious presence will be a blessing for us.</p>
                 </div>
               </div>
               <div class="host-info">
@@ -168,17 +256,18 @@
               <span class="section-head-title">Wedding Venue</span>
               <span class="section-head-line"></span>
             </div>
-            <div class="venue-invite-card">
+            <div class="venue-unified-card">
               <a href="https://maps.app.goo.gl/mhJR91sbQw28LqGA6" target="_blank" rel="noopener" class="venue-map-card" aria-label="Open venue in Maps">
                 <img src="assets/map_view.png" alt="Wedding venue map" class="venue-map-card-img" loading="lazy">
               </a>
-          </div>
-            <div class="venue-map-qr-wrap">             
-              <div class="venue-qr-card">
-                <a href="https://maps.app.goo.gl/mhJR91sbQw28LqGA6" target="_blank" rel="noopener" aria-label="Open venue in Maps">
-                  <img src="assets/Location_qr_code.png" alt="Scan for venue location" class="venue-qr-img" loading="lazy" onerror="this.style.display='none'">
-                </a>
-                <p class="venue-qr-label">Scan for location</p>
+              <div class="venue-unified-bottom">
+                <div class="venue-qr-mini">
+                  <img src="assets/Location_qr_code.png" alt="Scan for venue location" class="venue-qr-mini-img" loading="lazy">
+                </div>
+                <div class="venue-unified-text">
+                  <p class="venue-qr-label">Scan for location</p>
+                  <p class="venue-tap-label">or tap map to navigate</p>
+                </div>
               </div>
             </div>
           </section>
@@ -221,6 +310,9 @@
               <span class="section-head-line"></span>
             </div>
             <div class="blessings-wall" id="blessings-wall">
+              <div class="blessings-quote">
+                <p class="blessings-quote-text">"Two souls with but a single thought, two hearts that beat as one."</p>
+              </div>
               <p class="blessings-placeholder">Your blessings are truly precious to us, and we humbly cherish them.</p>
             </div>
           </section>
@@ -244,8 +336,8 @@
           <!-- Footer (reference style: Om + names + date) -->
           <footer class="footer footer-invite footer-reveal">            
             <div class="footer-couple-card">
-              <span class="footer-om" aria-hidden="true"><img src="assets/om_logo.png" alt="Om" class="footer-om-img"></span>
-              <div class="couple-card">                
+              <span class="footer-om" aria-hidden="true"><img src="assets/om_logo.png" alt="ॐ" class="footer-om-img"></span>
+              <div class="couple-card">
                 <div class="couple-card-frame">
                   <img src="assets/groom_bride_logo.png" alt="Subhash & Simran" class="couple-card-img" loading="lazy">
                 </div>
@@ -276,3 +368,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
