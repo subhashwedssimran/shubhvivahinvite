@@ -20,27 +20,35 @@
       font-weight: 700;
       letter-spacing: 0.07em;
       -webkit-font-smoothing: antialiased;
+      color: var(--color-gold);
     }
     .schedule-block-index .schedule-date-badge {
       font-weight: 700;
       -webkit-font-smoothing: antialiased;
+      color: var(--color-gold);
     }
     .schedule-block-index .schedule-day-name {
       font-weight: 600;
+      color: var(--color-gold-light);
     }
     .schedule-block-index .schedule-event-text {
       font-weight: 700;
       -webkit-font-smoothing: antialiased;
+      color: var(--color-charcoal);
     }
     .schedule-block-index .schedule-highlight-text {
       font-weight: 600;
+      color: var(--color-charcoal);
     }
     .schedule-block-index .schedule-highlight-text strong {
       font-weight: 700;
+      color: var(--color-gold);
     }
-    .schedule-block-index .schedule-blessing {
+    .schedule-block-index .schedule-blessing,
+    .schedule-block-index .schedule-blessing-text {
       font-weight: 500;
       -webkit-font-smoothing: antialiased;
+      color: var(--color-muted);
     }
     /* English only: subtle shine on first schedule date */
     .schedule-date-badge-shine {
@@ -58,9 +66,7 @@
 
   <div class="top-bar-controls" role="toolbar" aria-label="Page controls">
     <!-- Music toggle (must sit beside lang toggle — same z-index was hiding it under the pill) -->
-    <button type="button" class="music-toggle" id="musicToggle" aria-label="Toggle music">
-      <span class="music-toggle-icon" id="musicIcon">🔇</span>
-    </button>
+   
     <!-- Language toggle -->
     <div class="lang-toggle" id="langToggle" aria-label="Switch language">
       <span class="lang-toggle-label lang-active">EN</span>
@@ -158,50 +164,56 @@
                 <div class="schedule-block schedule-block-index">
                   <h3 class="schedule-title">Auspicious Wedding Schedule</h3>
 
-                  <div class="schedule-day">
+                  <div class="schedule-day schedule-day--compact">
                     <div class="schedule-day-head">
-                      <span class="schedule-date-badge schedule-date-badge-shine">18 April 2026 <span class="schedule-day-name">Saturday</span></span>
+                      <span class="schedule-date-badge schedule-date-badge--with-img schedule-date-badge-shine"><span class="schedule-date-badge-icon" aria-hidden="true"><img src="assets/date_img.png" alt="" class="schedule-date-badge-img" width="64" height="24" loading="lazy" decoding="async"></span> 18 April 2026 <span class="schedule-day-name">Saturday</span></span>
                     </div>
                     <div class="schedule-events">
-                      <div class="schedule-event"><span class="schedule-icon">🌼</span><span class="schedule-event-text">Haldi Ceremony</span></div>
+                      <div class="schedule-events-stack">
+                        <div class="schedule-event schedule-event--with-img"><span class="schedule-icon schedule-icon--img" aria-hidden="true"><img src="assets/haldi_img.png" alt="" class="schedule-icon-img" width="44" height="44" loading="lazy" decoding="async"></span><span class="schedule-event-text">Haldi Ceremony</span></div>
+                      </div>
                     </div>
                   </div>
 
-                  <div class="schedule-day">
+                  <div class="schedule-day schedule-day--compact">
                     <div class="schedule-day-head">
-                      <span class="schedule-date-badge">19 April 2026 <span class="schedule-day-name">Sunday</span></span>
+                      <span class="schedule-date-badge schedule-date-badge--with-img"><span class="schedule-date-badge-icon" aria-hidden="true"><img src="assets/date_img.png" alt="" class="schedule-date-badge-img" width="64" height="24" loading="lazy" decoding="async"></span> 19 April 2026 <span class="schedule-day-name">Sunday</span></span>
                     </div>
                     <div class="schedule-events">
-                      <div class="schedule-event"><span class="schedule-icon">🌿</span><span class="schedule-event-text">Mehendi Ceremony</span></div>
+                      <div class="schedule-events-stack">
+                        <div class="schedule-event schedule-event--with-img"><span class="schedule-icon schedule-icon--img" aria-hidden="true"><img src="assets/mehendi_img.png" alt="" class="schedule-icon-img" width="44" height="44" loading="lazy" decoding="async"></span><span class="schedule-event-text">Mehendi Ceremony</span></div>
+                      </div>
                     </div>
                   </div>
 
-                  <div class="schedule-day">
+                  <div class="schedule-day schedule-day--compact schedule-day--multi-centered">
                     <div class="schedule-day-head">
-                      <span class="schedule-date-badge">20 April 2026 <span class="schedule-day-name">Monday</span></span>
+                      <span class="schedule-date-badge schedule-date-badge--with-img"><span class="schedule-date-badge-icon" aria-hidden="true"><img src="assets/date_img.png" alt="" class="schedule-date-badge-img" width="64" height="24" loading="lazy" decoding="async"></span> 20 April 2026 <span class="schedule-day-name">Monday</span></span>
                     </div>
                     <div class="schedule-events">
-                      <div class="schedule-event"><span class="schedule-icon">🪔</span><span class="schedule-event-text">Mandap Ceremony & Dev Poojan</span></div>
-                      <div class="schedule-event"><span class="schedule-icon">🎺</span><span class="schedule-event-text">Arrival of the Baraat</span></div>
-                      <div class="schedule-event"><span class="schedule-icon">💍</span><span class="schedule-event-text">Wedding Ceremony in the Evening</span></div>
+                      <div class="schedule-events-stack">
+                        <div class="schedule-event schedule-event--with-img"><span class="schedule-icon schedule-icon--img" aria-hidden="true"><img src="assets/mandap_img.png" alt="" class="schedule-icon-img" width="44" height="44" loading="lazy" decoding="async"></span><span class="schedule-event-text">Mandap Ceremony & Dev Poojan</span></div>
+                        <div class="schedule-event schedule-event--with-img"><span class="schedule-icon schedule-icon--img" aria-hidden="true"><img src="assets/baraat_img.png" alt="" class="schedule-icon-img" width="44" height="44" loading="lazy" decoding="async"></span><span class="schedule-event-text">Arrival of the Baraat</span></div>
+                        <div class="schedule-event schedule-event--with-img"><span class="schedule-icon schedule-icon--img" aria-hidden="true"><img src="assets/wedding_img.png" alt="" class="schedule-icon-img" width="44" height="44" loading="lazy" decoding="async"></span><span class="schedule-event-text">Wedding Ceremony in the Evening</span></div>
+                      </div>
                     </div>
                   </div>
 
                   <div class="schedule-highlight">
-                    <span class="schedule-icon">👧</span><span class="schedule-highlight-text">Little Wish: <strong>Saanvi Verma</strong></span>
+                    <span class="schedule-icon schedule-icon--img" aria-hidden="true"><img src="assets/little_wish_img.png" alt="" class="schedule-icon-img" width="44" height="44" loading="lazy" decoding="async"></span><span class="schedule-highlight-text">Little Wish: <strong>Saanvi & Shivansh Verma</strong></span>
                   </div>
 
                   <div class="schedule-day schedule-day-reception">
                     <div class="schedule-day-head">
-                      <span class="schedule-date-badge">🍽 Wedding Feast</span>
+                      <span class="schedule-date-badge schedule-date-badge--with-img"><span class="schedule-date-badge-icon" aria-hidden="true"><img src="assets/reception_img.png" alt="" class="schedule-date-badge-img" width="64" height="24" loading="lazy" decoding="async"></span> Wedding Feast</span>
                     </div>
                     <div class="schedule-events">
-                      <div class="schedule-event"><span class="schedule-icon">📅</span><span class="schedule-event-text">20 April 2026 (Monday)</span></div>
-                      <div class="schedule-event"><span class="schedule-icon">⏰</span><span class="schedule-event-text">From 12:00 Noon onwards</span></div>
+                      <div class="schedule-event schedule-event--with-img"><span class="schedule-icon schedule-icon--img" aria-hidden="true"><img src="assets/date_img.png" alt="" class="schedule-icon-img" width="44" height="44" loading="lazy" decoding="async"></span><span class="schedule-event-text">20 April 2026 (Monday)</span></div>
+                      <div class="schedule-event schedule-event--with-img"><span class="schedule-icon schedule-icon--img" aria-hidden="true"><img src="assets/time_img.png" alt="" class="schedule-icon-img" width="44" height="44" loading="lazy" decoding="async"></span><span class="schedule-event-text">From 12:00 Noon onwards</span></div>
                     </div>
                   </div>
 
-                  <p class="schedule-blessing">💐 Your gracious presence will be a blessing for us.</p>
+                  <p class="schedule-blessing"><span class="schedule-blessing-icon" aria-hidden="true"><img src="assets/blessing_img.png" alt="" class="schedule-blessing-img" width="44" height="44" loading="lazy" decoding="async"></span><span class="schedule-blessing-text">Your gracious presence will be a blessing for us.</span></p>
                 </div>
               </div>
               <div class="host-info">
@@ -368,4 +380,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
