@@ -1358,6 +1358,66 @@ body { font-family: var(--font-sans); font-weight: 400; color: var(--color-charc
   border: 1px solid rgba(184, 134, 11, 0.15);
   border-radius: 10px;
 }
+/* Single-event cards (Haldi / Mehendi): match original emoji-era density */
+.schedule-day--compact {
+  padding: 0.12rem 0.5rem 0;
+}
+.schedule-day--compact .schedule-day-head {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+.schedule-day--compact .schedule-date-badge {
+  padding: 0.06rem 0.5rem;
+  line-height: 1.2;
+}
+/* date_img / badge icons need slightly more vertical padding than emoji-only compact pills */
+.schedule-day--compact .schedule-date-badge.schedule-date-badge--with-img {
+  padding: 0.12rem 0.55rem;
+}
+.schedule-day--compact .schedule-events {
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+/* Icon + label (PNG assets): nested rules — grid container set below (must override .schedule-event { flex }) */
+.schedule-event--with-img .schedule-icon--img {
+  grid-column: 1;
+  justify-self: center;
+  width: 44px;
+  min-width: 44px;
+  max-width: 44px;
+  height: 44px;
+  min-height: 44px;
+  max-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.schedule-event--with-img .schedule-icon-img {
+  width: 100%;
+  height: 100%;
+  max-width: 44px;
+  max-height: 44px;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
+}
+.schedule-event--with-img .schedule-event-text {
+  grid-column: 2;
+  min-width: 0;
+  font-size: 0.78rem;
+  line-height: 1.25;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
 .schedule-day-head {
   margin-bottom: 0.35rem;
 }
@@ -1373,6 +1433,36 @@ body { font-family: var(--font-sans); font-weight: 400; color: var(--color-charc
   border-radius: 999px;
   border: 1px solid rgba(184, 134, 11, 0.2);
 }
+/* Reception / feast — wide PNG; cap height to sit with 0.72rem badge type (not 44px row icons, but same visual discipline) */
+.schedule-date-badge--with-img {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  vertical-align: middle;
+  padding: 0.15rem 0.6rem;
+}
+.schedule-date-badge--with-img .schedule-date-badge-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 0;
+  width: auto;
+  min-width: 1.75rem;
+  height: 1.5rem;
+  max-width: 3.25rem;
+}
+.schedule-date-badge--with-img .schedule-date-badge-img {
+  width: auto;
+  height: 100%;
+  max-height: 1.5rem;
+  max-width: 3.25rem;
+  min-width: 0;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
+}
 .schedule-day-name {
   font-weight: 500;
   opacity: 0.7;
@@ -1381,7 +1471,9 @@ body { font-family: var(--font-sans); font-weight: 400; color: var(--color-charc
 .schedule-events {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 0.35rem;
+  align-items: stretch;
+  width: 100%;
 }
 .schedule-event {
   display: flex;
@@ -1389,9 +1481,83 @@ body { font-family: var(--font-sans); font-weight: 400; color: var(--color-charc
   justify-content: center;
   gap: 0.35rem;
 }
+/* Grid: fixed icon column + text — icons align; equal row spacing via .schedule-events gap */
+.schedule-event.schedule-event--with-img {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  column-gap: 0.35rem;
+  align-items: center;
+  justify-items: start;
+  justify-content: unset;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* 20 April (3 events): compact shell + centered block; align-items:center, gap≈0 between lines */
+.schedule-day--compact.schedule-day--multi-centered {
+  padding: 0.08rem 0.5rem 0;
+}
+.schedule-day--compact.schedule-day--multi-centered .schedule-day-head {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+/* Shrink-wrap to widest row, then center the whole block under the date pill (fixes grid 1fr “stretch” left bias) — Haldi/Mehendi + 20 April */
+.schedule-day--compact .schedule-events-stack {
+  display: grid;
+  grid-template-columns: minmax(0, max-content);
+  justify-items: stretch;
+  width: max-content;
+  max-width: min(100%, 19.5rem);
+  margin: 0 auto;
+  box-sizing: border-box;
+  gap: 0;
+}
+.schedule-day--compact .schedule-events-stack .schedule-event.schedule-event--with-img {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  column-gap: 0.28rem;
+  /* Second column sizes to content so the icon+text unit isn’t stretched across full card width */
+  grid-template-columns: 44px minmax(0, max-content);
+}
+.schedule-day--compact .schedule-events-stack .schedule-event--with-img .schedule-event-text {
+  text-align: center;
+  justify-content: center;
+}
+/* Tighter line rhythm only on the 3-line 20 April card */
+.schedule-day--compact.schedule-day--multi-centered .schedule-events-stack .schedule-event--with-img .schedule-event-text {
+  line-height: 1.12;
+}
+
 .schedule-icon {
   font-size: 0.75rem;
   flex-shrink: 0;
+}
+/* Theme asset in place of emoji — consistent on all devices */
+.schedule-icon--img {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0;
+  line-height: 0;
+  flex-shrink: 0;
+  min-width: 52px;
+  min-height: 52px;
+  margin-right: 0;
+}
+.schedule-icon-img {
+  width: 52px;
+  height: 52px;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
 }
 .schedule-event-text {
   font-family: 'Cormorant Garamond', var(--font-serif);
@@ -1421,17 +1587,92 @@ body { font-family: var(--font-sans); font-weight: 400; color: var(--color-charc
   font-weight: 700;
   color: var(--color-gold);
 }
+/* Little Wish — same 44px PNG treatment as schedule rows */
+.schedule-highlight .schedule-icon--img {
+  width: 44px;
+  min-width: 44px;
+  max-width: 44px;
+  height: 44px;
+  min-height: 44px;
+  max-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.schedule-highlight .schedule-icon-img {
+  width: 100%;
+  height: 100%;
+  max-width: 44px;
+  max-height: 44px;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
+}
 .schedule-day-reception {
   border: 1px solid rgba(184, 134, 11, 0.25);
   background: linear-gradient(180deg, rgba(184, 134, 11, 0.06) 0%, rgba(184, 134, 11, 0.12) 100%);
 }
+.schedule-day-reception .schedule-events {
+  align-items: center;
+  gap: 0;
+  row-gap: 0;
+}
+/* Shrink-wrap icon + text and center under the feast badge (same 44px assets as main schedule) */
+.schedule-day-reception .schedule-event.schedule-event--with-img {
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  grid-template-columns: 44px minmax(0, max-content);
+}
+/* Tight stack: no extra flex gap between date / time rows (base .schedule-events uses 0.35rem) */
+.schedule-day-reception .schedule-event--with-img .schedule-event-text {
+  line-height: 1.2;
+}
 .schedule-blessing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  text-align: center;
   font-family: 'Playfair Display', var(--font-serif);
   font-size: 0.7rem;
   font-style: italic;
   color: var(--color-muted);
   margin: 0.75rem 0 0;
   line-height: 1.5;
+}
+.schedule-blessing-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  line-height: 0;
+}
+.schedule-blessing-img {
+  width: 100%;
+  height: 100%;
+  max-width: 44px;
+  max-height: 44px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+.schedule-blessing-text {
+  flex: 1 1 12rem;
+  min-width: 0;
+  font-style: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  line-height: inherit;
 }
 
 .host-info {
